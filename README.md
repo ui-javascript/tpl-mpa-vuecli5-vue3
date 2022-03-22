@@ -16,5 +16,5 @@ Vue多页面
 暂时先不要取名index.js的文件
 ```
 
-- [ ] vue3语法demo
+![](https://luo0412.oss-cn-hangzhou.aliyuncs.com/1647952388493-mTd6KbaNPab6.png)
 
