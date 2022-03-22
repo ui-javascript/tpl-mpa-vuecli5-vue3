@@ -1,24 +1,9 @@
-# tpl-mpa-vuecli5-vue3
+# README
 
-## Project setup
-```
-yarn install
-```
+- @code https://github.com/ui-javascript/tpl-mpa-vuecli5-vue3
+- @ide https://uijavascript-tplmpavuecl-20jcid8eyh2.ws-us38.gitpod.io/
+- @demo 
+    - https://ui-javascript.github.io/tpl-mpa-vuecli5-vue3/demo.html
+    - https://9527-uijavascript-tplmpavuecl-20jcid8eyh2.ws-us38.gitpod.io/demo.html
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
