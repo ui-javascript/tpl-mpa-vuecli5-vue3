@@ -37,7 +37,7 @@ function getEntry (globPath) {
 
         let template = `./${sections.join('/')}/${moduleName}.html`
         if (!fs.existsSync(template)) {
-            console.log(`不存在文件${template} 使用默认视图`)
+            // console.log(`不存在文件${template} 使用默认视图`)
             template = CONFIG.template
         }
 

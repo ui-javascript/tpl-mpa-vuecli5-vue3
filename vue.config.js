@@ -41,10 +41,10 @@ module.exports = defineConfig({
     port: CONFIG.port,
     // @todo https://github.com/vuejs/vue-cli/issues/6996
     // disableHostCheck: true,
-    // client: {
-    //   webSocketURL: `ws://0.0.0.0:${CONFIG.port}/ws`,
-    // },
-    // allowedHosts: 'all',
+    client: {
+      webSocketURL: `ws://0.0.0.0:${CONFIG.port}/ws`,
+    },
+    allowedHosts: 'all',
   },
   configureWebpack: {
     // plugins: [],
