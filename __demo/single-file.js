@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 
 const App = {
   template: `
@@ -25,9 +25,6 @@ const App = {
   },
 }
 
-Vue.config.productionTip = false
 
-new Vue({
-  el: '#app',
-  render: h => h(App)
-})
+
+createApp(App).mount('#app')

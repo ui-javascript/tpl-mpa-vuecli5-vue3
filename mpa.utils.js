@@ -74,9 +74,8 @@ function getEntry (globPath) {
             filename: `${uuid}.html`,
             // 文件名
             title: context.title,
-            // @TODO 如何拆分??
-            // 不写chunk-vendors --> iview-admin无法正常
-            // chunks: ['chunk-vendors', 'chunk-common', uuid],
+            // @fix
+            chunks: ['chunk-vendors', 'chunk-common', uuid],
         }
 
     });

@@ -1,7 +1,8 @@
 const path = require("path")
 const { defineConfig } = require('@vue/cli-service')
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
-// const isEnvProd = (process.env.NODE_ENV === 'production')
+const isEnvProd = (process.env.NODE_ENV === 'production')
 const isEnvDev = (process.env.NODE_ENV === 'development')
 
 function resolve(dir) {
@@ -23,13 +24,13 @@ console.log(pages)
 // @fix 2019-11-16 pages是对象类型 不是数组 改为Object.keys().length
 const entries = pages.entries
 
-// if (!isEnvProd && Object.keys(entries).length > 1 && CONFIG.showNav) {
-//   for (let index in entries) {
-//     Object.assign(entries[index], {
-//       _browserPage: pages.browserPages,
-//     })
-//   }
-// }
+if (!isEnvProd && Object.keys(entries).length > 1 && CONFIG.showNav) {
+  for (let index in entries) {
+    Object.assign(entries[index], {
+      _browserPage: pages.browserPages,
+    })
+  }
+}
 
 module.exports = defineConfig({
   transpileDependencies: true,
@@ -37,15 +38,17 @@ module.exports = defineConfig({
   publicPath: './',
   outputDir: 'docs',
   devServer: {
-    host: '0.0.0.0',
     port: CONFIG.port,
-    // @todo https://github.com/vuejs/vue-cli/issues/6996
+    // @fix 暴露地址 
+    // https://github.com/vuejs/vue-cli/issues/6996
+    host: '0.0.0.0',
     // disableHostCheck: true,
     client: {
       webSocketURL: `ws://0.0.0.0:${CONFIG.port}/ws`,
     },
     allowedHosts: 'all',
   },
+  runtimeCompiler: true,
   configureWebpack: {
     // plugins: [],
     resolve: {
@@ -57,8 +60,8 @@ module.exports = defineConfig({
         // '^': resolve('src'),
         // @fix runtime -> compiler模式
         // https://blog.csdn.net/wxl1555/article/details/83187647
-        // 'vue$': 'vue/dist/vue.esm.js'
-        // 'vue': 'vue/dist/vue.esm-bundler.js',
+        // 'vue$': 'vue/dist/vue.esm.js',
+        'vue$': 'vue/dist/vue.esm-bundler.js',
       }
     }
   },
@@ -87,10 +90,20 @@ module.exports = defineConfig({
 
     // config
     //   .plugin('html')
+    //   .use(HtmlWebpackPlugin)
     //   .tap(args => {
-    //     args[0]._browserPage = pages._browserPage
+    //     args.title = 'Your new title'
     //     return args
     //   })
+
+    // config.module
+    //   .rule('vue')
+    //   .use('vue-loader')
+    //   .loader('vue-loader')
+    //   .tap(options => {
+    //       options.compilerOptions.preserveWhitespace = true
+    //       return options;
+    //   });
 
     // 开发环境 cheap-source-map
     config
