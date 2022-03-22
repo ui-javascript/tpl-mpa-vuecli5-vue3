@@ -1,7 +1,12 @@
+const path = require("path")
 const { defineConfig } = require('@vue/cli-service')
 
 // const isEnvProd = (process.env.NODE_ENV === 'production')
 const isEnvDev = (process.env.NODE_ENV === 'development')
+
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
 
 // 构建工具类
 const utils = require("./mpa.utils")
@@ -34,12 +39,28 @@ module.exports = defineConfig({
   devServer: {
     host: '0.0.0.0',
     port: CONFIG.port,
-    // https://github.com/vuejs/vue-cli/issues/6996
+    // @todo https://github.com/vuejs/vue-cli/issues/6996
     // disableHostCheck: true,
-    client: {
-      webSocketURL: `ws://0.0.0.0:${CONFIG.port}/ws`,
-   },
-    allowedHosts: 'all',
+    // client: {
+    //   webSocketURL: `ws://0.0.0.0:${CONFIG.port}/ws`,
+    // },
+    // allowedHosts: 'all',
+  },
+  configureWebpack: {
+    // plugins: [],
+    resolve: {
+      alias: {
+        '@': resolve('src'),
+        // @TODO 目前这个变量仅仅给vue-element-admin使用
+        // --> 所以src内使用到^/store的地方代码都有耦合
+        // 当前项目最外层路径
+        // '^': resolve('src'),
+        // @fix runtime -> compiler模式
+        // https://blog.csdn.net/wxl1555/article/details/83187647
+        // 'vue$': 'vue/dist/vue.esm.js'
+        // 'vue': 'vue/dist/vue.esm-bundler.js',
+      }
+    }
   },
   // css: {
   //   loaderOptions: {
