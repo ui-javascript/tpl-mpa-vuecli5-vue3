@@ -65,6 +65,13 @@ module.exports = defineConfig({
       }
     }
   },
+  pluginOptions: {
+    'style-resources-loader': {
+        preProcessor: 'less',
+        // less所在文件路径
+        // patterns: [path.resolve(__dirname, './src/assets/css/base.less')] 
+    }
+  }, 
   // css: {
   //   loaderOptions: {
   //     less: {
