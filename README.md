@@ -8,17 +8,16 @@ Vue多页面
 
 # 常见问题 @faq
 
-- ERROR in Conflict: Multiple assets emit different content to the same filename index.html @todo
+- ERROR in Conflict: Multiple assets emit different content to the same filename index.html @fix
 
 ```
-暂时先不要取名index.js的文件
-
 删除public/index.html
+会与template/index.html 冲突
 ```
 
 ![](https://luo0412.oss-cn-hangzhou.aliyuncs.com/1647952388493-mTd6KbaNPab6.png)
 
-- Uncaught TypeError: Cannot read properties of undefined (reading 'use')
+- Uncaught TypeError: Cannot read properties of undefined (reading 'use') @fix
 
 ```
 低版本不适配vue3
