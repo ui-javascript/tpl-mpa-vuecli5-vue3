@@ -63,7 +63,7 @@ function getEntry (globPath) {
         }
 
         let uuid = `${prefix}${moduleName}`
-        browserPages.push(`/${uuid}.html`)
+        browserPages.push(`./${uuid}.html`)
 
         entries[uuid] = {
             // js入口
