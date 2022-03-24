@@ -1,6 +1,6 @@
 # README
 
-Vue多页面
+Vue多页面, 界面大致如下
 
 ![](https://luo0412.oss-cn-hangzhou.aliyuncs.com/1647952253742-hDMCwm8BFyrw.png)
 
